@@ -31,7 +31,7 @@ def get_store_data(csvf="Stores_dict.csv"):
             stores[line[0]] = line[1:]
     return stores
 
-def get_store_category(store_name, csvf="Store_dict.csv"):
+def get_store_category(store_name, csvf="Stores_dict.csv"):
     """Returns the store category.
 
     Parameters
