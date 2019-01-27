@@ -1,8 +1,9 @@
 from budgeter.userlist import UserDataBase
+user = UserDataBase(1000, 100)
+
 class DataBase_stores(object):
-	Users = UserDataBase(10, 10)
-	Customs = Users.UserList
 	def __init__(self, store_name):
+		self.Customs = user.UserList
 		self.store_name = store_name
 		self.userList = []
 		self.getUser()
@@ -52,5 +53,5 @@ class DataBase_stores(object):
 				"Frequent": self.getFrequent()
 			}
 			return info
-a = DataBase_stores("Addition")
-		
+a = DataBase_stores("Fortinos")
+print(a.info["user_num"])

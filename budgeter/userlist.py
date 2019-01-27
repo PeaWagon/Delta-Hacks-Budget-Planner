@@ -1,5 +1,6 @@
 from budgeter.userdata import UserData
 from budgeter.create_user import create_user
+#from budgeter.DataBase_stores import DataBase_stores
 class UserDataBase(object):
 	def __init__(self, user_capacity, transaction):
 		self.transaction = transaction
@@ -12,5 +13,3 @@ class UserDataBase(object):
 			user = create_user(self.transaction)
 			a.append(user)
 		return a
-#a = UserDataBase(10, 10)
-#print(a.UserList[0].data["is_yearly"])
