@@ -53,5 +53,4 @@ class DataBase_stores(object):
 			}
 			return info
 a = DataBase_stores("Addition")
-print(a.info["average amount"])
 		

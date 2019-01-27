@@ -20,11 +20,11 @@ class analyse_stores:
 	def cheapest(self):
 		if self.GetPrice() == []:
 			return "none"
-		return self.GetPrice()[-1]
+		return self.GetPrice()[-1]["store name"]
 	def expensive(self):
 		if self.GetPrice() == []:
 			return "none"
-		return self.GetPrice()[0]
+		return self.GetPrice()[0]["store name"]
 	def getData(self):
 		data = {
 			"Most Economic": self.cheapest(),
@@ -32,3 +32,4 @@ class analyse_stores:
 		}
 		return data
 a = analyse_stores("Clothing")
+print(a.store_data["Most Economic"])
