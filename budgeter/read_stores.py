@@ -43,7 +43,7 @@ def get_store_category(store_name, csvf="Store_dict.csv"):
         Stores_dict.csv.
 
     """
-    data = get_stores_data(csvf)
+    data = get_store_data(csvf)
     for category in data:
         if store_name in data[category]:
             return category
