@@ -12,6 +12,12 @@ class UserData(object):
         self.username = username
         self.data = self.setup_data()
 
+    def __getitem__(self, key):
+        transaction = []
+        for cat in self.data:
+            transaction.append(self.data[cat][key])
+        return transaction
+
     def setup_data(self):
         """Creates a blank data dictionary."""
         data = {"Year": [],
