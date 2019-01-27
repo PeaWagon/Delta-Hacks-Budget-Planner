@@ -75,12 +75,4 @@ class UserDataBase(object):
             if user is not None:
                 self.user_list.append(user)
                 self.num_users += 1
-                    
-
-
-
-
-
-
-
 
