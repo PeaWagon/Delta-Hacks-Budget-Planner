@@ -8,7 +8,6 @@ class analyse_stores:
 		self.category = category
 		self.storesInCateg = self.stores_List[category]
 		self.store_data = self.getData()
-		
 	
 	def GetPrice(self):
 		amountList = []

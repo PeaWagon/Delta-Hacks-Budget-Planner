@@ -10,7 +10,7 @@ class DataBase_stores(object):
 	
     def getUser(self):
         for users in self.Customs:
-            or stores in users.data["Company Name"]:
+            for stores in users.data["Company Name"]:
                 if stores == self.store_name:
                     self.userList.append(users)
         return 
@@ -52,3 +52,10 @@ class DataBase_stores(object):
                 "Frequent": self.getFrequent()
             }
             return info
+store_fortino = DataBase_stores("Fortinos")
+store_best_bus = DataBase_stores("Best Buy")
+store_HomeDep = DataBase_stores("Home Depot")
+store_coffee_time = DataBase_stores("Coffee Time")
+
+print(store_fortino.info["average amount"], store_best_bus.info["average amount"], store_HomeDep.info["average amount"], store_coffee_time.info["average amount"]
+)
