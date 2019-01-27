@@ -92,7 +92,6 @@ class UserData(object):
 
         """
         pie = {}
-        print(self.monthly_expenses(month, year))
         # t for transaction
         for t in self.monthly_expenses(month, year):
             category = self.data["Category"][t]
@@ -105,7 +104,7 @@ class UserData(object):
 
         # make piegraph
         plt.figure()
-        plt.pie(amounts, labels=labels, autopct='%.2f')
+        plt.pie(amounts, labels=labels, autopct="%.1f%%")
         plt.show()            
 
     @property
