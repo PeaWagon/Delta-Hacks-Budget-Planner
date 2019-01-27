@@ -1,5 +1,6 @@
 
 import datetime # for getting current year, month
+import numpy as np
 import matplotlib.pyplot as plt
 
 # get current date
@@ -61,7 +62,7 @@ class UserData(object):
         """
         expense_indices = []
         for i in range(self.num_transactions):
-            if self.data["Year"] == year and self.data["Month"] == month:
+            if self.data["Year"][i] == year and self.data["Month"][i] == month:
                 expense_indices.append(i)
         return expense_indices
 
@@ -69,7 +70,7 @@ class UserData(object):
         """Same as monthly_expenses, except for year."""
         expense_indices = []
         for i in range(self.num_transactions):
-            if self.data["Year"] == year:
+            if self.data["Year"][i] == year:
                 expense_indices.append(i)
         return expense_indices
 
@@ -86,18 +87,20 @@ class UserData(object):
 
         """
         pie = {}
+        print(self.monthly_expenses(month, year))
         # t for transaction
         for t in self.monthly_expenses(month, year):
-            category = self.data[t]["Category"]
+            category = self.data["Category"][t]
             if category in pie:
-                pie[category] += self.data[t]["Amount"]
+                pie[category] += self.data["Amount"][t]
+            else:
+                pie[category] = self.data["Amount"][t]
         labels = pie.keys()
-        amounts = list(pie.values())  
+        amounts = list(pie.values())
+
         # make piegraph
-        fig1, ax1 = plt.subplots()
-        ax1.pie(amounts, labels=labels, autopct="%1.1f%%",
-                shadow=True, startangle=90)
-        ax1.axis("equal")
+        plt.figure()
+        plt.pie(amounts, labels=labels, autopct='%.2f')
         plt.show()            
 
     @property
