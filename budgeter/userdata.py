@@ -2,6 +2,8 @@
 import datetime # for getting current year, month
 import matplotlib.pyplot as plt
 
+from budgeter.read_stores import get_store_category
+
 # get current date
 now = datetime.datetime.now()
 
@@ -29,6 +31,30 @@ class UserData(object):
                 "is_monthly": []
                 }
         return data
+
+    def add_item_simple(self, item):
+        """Add purchase to user data with fewer fields.
+
+        item example:
+        ["23-03-2019", "Tim Hortons", 5]
+
+        """
+        date = item[0].split('-')
+        day = date[0]
+        month = date[1]
+        year = date[2]
+        company = item[1]
+        amount = item[2]
+        category = get_store_category(company)
+        
+        self.data["Year"].append(year)
+        self.data["Month"].append(month)
+        self.data["Day"].append(day)
+        self.data["Company Name"].append(company)
+        self.data["Category"].append(category)
+        self.data["Amount"].append(amount)
+        self.data["is_yearly"].append(False)
+        self.data["is_monthly"].append(False)
 
     def add_item(self, item):
         """Add a purchase to the user data.
@@ -104,6 +130,7 @@ class UserData(object):
 
         # make piegraph
         plt.figure()
+        plt.title(f"Total Spent (CAD): ${sum(amounts):.2f}\n{month} {year}")
         plt.pie(amounts, labels=labels, autopct="%.1f%%")
         plt.show()            
 

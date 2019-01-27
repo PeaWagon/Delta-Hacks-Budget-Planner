@@ -29,7 +29,6 @@ def test_UserData_monthly_expenses():
 def test_UserData_monthly_piegraph():
     user = create_user(500)
     user.monthly_piegraph("March", 2018)
-    
 
 if __name__ == "__main__":
     test_UserData()
