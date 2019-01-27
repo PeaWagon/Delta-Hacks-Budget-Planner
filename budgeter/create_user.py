@@ -97,4 +97,5 @@ def create_user(num_transactions):
     for i in range(num_transactions):
         user.add_item(create_transaction())
     return user
-    
+#a = create_user(10)
+#print(a.data["Year"])
