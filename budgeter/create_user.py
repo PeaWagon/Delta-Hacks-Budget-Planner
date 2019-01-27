@@ -44,9 +44,9 @@ def create_transaction():
     if choice == 1 or choice == 2:
         ym = random.choice(["year", "month"])
         if ym == "year":
-            data["is_yearly"] = True
+            item["is_yearly"] = True
         else:
-            data["is_monthly"] = True
+            item["is_monthly"] = True
 
     # determine if year is leap year
     leap = False
