@@ -1,6 +1,5 @@
 
 import datetime # for getting current year, month
-import numpy as np
 import matplotlib.pyplot as plt
 
 # get current date
